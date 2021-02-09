@@ -9,7 +9,7 @@ var configuration = configModule.configure(process.env.NODE_ENV);
 
 //Configure Logging
 const winston = require('winston');
-winston.level = configuration.loglevel;
+winston.add(new winston.transports.Console({level: configuration.loglevel}));
 
 /**
  * Constructor function
@@ -176,10 +176,10 @@ DynamoDBHelper.prototype.createTable = function(dynamodb, callback) {
    };
    dynamodb.describeTable(newTable, function (error, data) {
        if (!error) {
-           winston.debug("Table already exists: " + this.tableDefinition.TableName);
            callback(null);
        }
        else {
+           winston.debug("Creating table: " + this.tableDefinition.TableName);
            dynamodb.createTable(this.tableDefinition, function (err, data) {
                if (err) {
                    winston.error("Unable to create table: " + this.tableDefinition.TableName);

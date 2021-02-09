@@ -19,7 +19,7 @@ const cognitoUsers = require('./cognito-user.js');
 
 
 // Init the winston log level
-winston.level = configuration.loglevel;
+winston.add(new winston.transports.Console({level: configuration.loglevel}));
 
 //Variables that are provided through a token
 var bearerToken = '';

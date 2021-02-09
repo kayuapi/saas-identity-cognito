@@ -213,6 +213,7 @@ Resources:
             - cognito-idp:AdminDeleteUser
             - cognito-idp:DeleteUserPool
             - cognito-idp:AdminGetUser
+            - cognito-idp:TagResource
             Resource: '*'
           - Sid: APIGatewayKeysCertificates
             Effect: Allow

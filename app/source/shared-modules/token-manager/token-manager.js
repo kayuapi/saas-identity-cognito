@@ -12,7 +12,7 @@ var configuration = configModule.configure(process.env.NODE_ENV);
 
 //Configure Logging
 const winston = require('winston');
-winston.level = configuration.loglevel;
+winston.add(new winston.transports.Console({level: configuration.loglevel}));
 
 // TODO: replace temporary cache with real cache
 var tokenCache = {};

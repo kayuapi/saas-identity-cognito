@@ -2,6 +2,7 @@ const config = require('config');
 var dev = config.get('Config.dev');
 var prod = config.get('Config.prod');
 const winston = require('winston');
+winston.add(new winston.transports.Console({level: "debug"}));
 
 /**
  * Set Configuration of Application, and Environment
@@ -16,6 +17,7 @@ module.exports.configure = function(environment) {
             environment = "development";
         }
     }
+    winston.debug('Running environment ' + environment);
         switch(environment) {
         case "production":
 
@@ -26,7 +28,6 @@ module.exports.configure = function(environment) {
                 break;
             }
             else {
-                winston.debug('Currently Running in', + environment);
                 var port = prod.port;
                 var name = prod.name;
                 //var table = prod.table;

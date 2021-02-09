@@ -10,7 +10,7 @@ const configModule = require('../shared-modules/config-helper/config.js');
 var configuration = configModule.configure(process.env.NODE_ENV);
 //Configure Logging
 const winston = require('winston');
-winston.level = configuration.loglevel;
+winston.add(new winston.transports.Console({level: configuration.loglevel}));
 //Include Custom Modules
 const tokenManager = require('../shared-modules/token-manager/token-manager.js');
 const DynamoDBHelper = require('../shared-modules/dynamodb-helper/dynamodb-helper.js');

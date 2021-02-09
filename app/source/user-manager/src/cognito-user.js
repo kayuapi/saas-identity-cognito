@@ -9,7 +9,7 @@ const configModule = require('../shared-modules/config-helper/config.js');
 var configuration = configModule.configure(process.env.NODE_ENV);
 
 // Init the winston log level
-winston.level = configuration.level;
+winston.add(new winston.transports.Console({level: configuration.loglevel}));
 
 /**
  * Create a Cognito user with custom attributes

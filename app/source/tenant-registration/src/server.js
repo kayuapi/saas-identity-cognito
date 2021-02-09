@@ -12,7 +12,7 @@ var configuration = configModule.configure(process.env.NODE_ENV);
 
 //Configure Logging
 const winston = require('winston');
-winston.level = configuration.loglevel;
+winston.add(new winston.transports.Console({level: configuration.loglevel}));
 
 var tenantURL   = configuration.url.tenant;
 var userURL   = configuration.url.user;
