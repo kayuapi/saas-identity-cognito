@@ -201,7 +201,7 @@ function ValidateToken(pems, event, context) {
         return;
     }
 
-    //Reject the jwt if it's not an 'Access Token'
+    //Reject the jwt if it's not an 'Access Token'  <- 'Access Token' is a SAAS identity token
     if (decodedJwt.payload.token_use != 'id') {
         console.log("Not an access token");
         context.fail("Not an access token");
