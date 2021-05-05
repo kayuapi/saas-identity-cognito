@@ -841,12 +841,12 @@ Resources:
         S3BucketPrefix: !Ref QSS3KeyPrefix
 Outputs:
   AlbUrl:
-    Description: The URL endpoint for the product service
+    Description: The URL endpoint for the Application Load Balancer which exposes the micro-services
     Value: !GetAtt ALB.Outputs.LoadBalancerUrl
   ApiUrl:
-    Description: The URL endpoint for the product service
+    Description: The root URL endpoint for the API
     Value: !GetAtt API.Outputs.RootUrl
   Website:
-    Description: The URL endpoint for the product service
+    Description:  The URL endpoint of the generated website
     Value: !GetAtt WebClient.Outputs.Website
 ...
