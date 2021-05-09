@@ -37,7 +37,7 @@ module.exports.getTenantId = function(req) {
 
 /**
  * Extract an id token from a request, decode it and extract the user role
- * id from the token.
+ * from the token.
  * @param req A request
  * @returns A role
  */
